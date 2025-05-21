@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jazz Night for Charity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Mulish', sans-serif;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+     /* HEADER & NAVBAR */
+    header {
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .logo img {
+      height: 2em;
+    }
+
+    .logo span {
+      font-weight: 200;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .avatar {
+      border-radius: 50%;
+    }
+
+    /* batas header */
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px;
+      background: black;
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .info img {
+      width: 20px;
+    }
+
+    .hero-image img {
+      border-radius: 20px;
+      width: 500px;
+    }
+
+    /* section artis */
+    .section {
+  padding: 40px 50px;
+  background: linear-gradient(150deg, #1b0000, #470000);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.appearances {
+  display: flex;
+  flex-wrap: wrap; /* Biar bisa turun ke bawah jika sempit */
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.artist {
+  flex: 1 1 200px; /* Responsive ukuran minimum */
+  max-width: 250px;
+}
+
+.artist img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.artist img:hover {
+  transform: scale(1.05);
+}
+
+.artist p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ✅ Tambahan: Atur ulang padding section di layar kecil */
+@media (max-width: 768px) {
+  .section {
+    padding: 30px 20px;
+  }
+}
+
+/* ✅ Tambahan: Ukuran layar sangat kecil (HP) */
+@media (max-width: 480px) {
+  .appearances {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .artist {
+    max-width: 100%;
+  }
+}
+
+    /* Artist */
+    .artist {
+      text-align: center;
+      padding-left: 60px;
+    }
+
+    .artist img {
+      width: 200px;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      margin-right: 60px;
+    }
+
+    .artist p {
+      font-weight: bold;
+    }
+
+    /* Ticket */
+    .ticket-section {
+      background: black;
+      color: white;
+      padding: 0 60px;
+      font-family: 'Mulish', sans-serif;
+    }
+
+    .ticket-title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .ticket-card {
+      background-color: #D14848;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ticket-notch {
+      background-color: black;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .left-notch {
+      left: -20px;
+    }
+
+    .right-notch {
+      right: -20px;
+    }
+
+    .ticket-date {
+      width: 100px; 
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 60px;
+    }
+
+    .ticket-date span {
+      font-size: 14px;
+    }
+
+   .ticket-info {
+      flex: 1;
+      padding: 30px 60px;
+    }
+
+    .ticket-type {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .ticket-desc {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .ticket-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ticket-price {
+      font-weight: bold;
+    }
+
+    .ticket-quantity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ticket-quantity button {
+      background-color: #ffffff;
+      border: none;
+      padding: 4px 8px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .ticket-quantity .quantity {
+      font-size: 16px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /*Pembayaran*/
+    .payment-section {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background-color: #1b0000;
+      justify-content: right;
+      padding-right: 80px;
+    }
+
+    .payment-box {
+      background-color: #111;
+      color: white;
+      border: 1px solid red;
+      border-radius: 12px;
+      padding: 10px;
+      width: 320px;
+    }
+
+    .title {
+      font-size: 14px;
+      display: flex;
+    }
+
+    .icon {
+      margin-right: 8px;
+    }
+
+    .ticket-info2 {
+      font-size: 14px;
+      margin:0 5px;
+    }
+
+    .price{
+      font-size: 14px;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    hr {
+      border: 1px solid white;
+      margin: 15px 10px;
+    }
+
+    .payment-method {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .payment-option input[type="radio"] {
+      accent-color: red;
+      cursor: pointer;
+    }
+
+    .payment-option img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .pay-button {
+      width: 100%;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .pay-button:hover {
+      background-color: #cc0000;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px;
+      background: #0a0a0a;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .hamburger {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: black;
+      padding: 1rem 2rem;
+      border-top: 1px solid #333;
+    }
+
+    .navbar ul.show {
+      display: flex;
+    }
+
+    .hamburger {
+      display: block;
+    }
+
+    .avatar {
+      display: none;
+    }
+  }
+    </style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <h2 class="logo">
+        <img src="/assets/logo.png" alt="Logo" />
+        Red <span>Music Event</span>
+      </h2>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#event">Events</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        &#9776; </div>
+
+      <img src="https://i.pravatar.cc/40" alt="User" class="avatar" />
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Jazz Night for Charity</h1>
+      <p>
+        Jazz Night for Charity presents an exclusive jazz music experience that is both fun and relaxing. The event is designed to create a warm atmosphere that connects music with a noble mission: supporting the provision of healthcare facilities to communities in need.
+      </p>
+      <div class="info">
+        <img src="/assets/cal.png" alt="Calendar" />
+        <span>Sunday 11 May, 2025</span>
+      </div>
+      <div class="info">
+        <img src="/assets/loc.png" alt="Location" />
+        <span>Ciputra Hall Surabaya, East Java</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/assets/jazz.png" alt="Saxophonist" />
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Special Appearance</h2>
+    <div class="appearances">
+      <div class="artist">
+        <img src="/assets/tompi.png" alt="Tompi" />
+        <p>Tompi</p>
+      </div>
+      <div class="artist">
+        <img src="/assets/maliq.png" alt="Maliq & D'Essentials" />
+        <p>Maliq & D'Essentials</p>
+      </div>
+      <div class="artist">
+        <img src="/assets/andien.png" alt="Andien" />
+        <p>Andien</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: #000; color: white; padding: 40px 20px;">
+
+  <!-- Regular Pass Ticket -->
+  <section class="ticket-section">
+  <h2 class="ticket-title">Ticket Packages</h2>
+
+  <div class="ticket-card">
+    <div class="ticket-notch left-notch"></div>
+    <div class="ticket-notch right-notch"></div>
+
+    <div class="ticket-date">
+      <p style="font-size: 20px;">11 <br><span>May</span></p>
+    </div>
+    <div class="ticket-info">
+      <p class="ticket-type">Regular Pass</p>
+      <p class="ticket-desc">
+        This ticket grants access to the main concert of Jazz Night for Charity, where you can enjoy amazing performances from Tompi, Andien, and Maliq & D'Essentials.
+      </p>
+      <hr>
+      <div class="ticket-footer">
+         <p class="ticket-price" data-type="Regular Pass" data-price="500000">Rp 500.000</p>
+        <div class="ticket-quantity">
+          <button class="decrease">−</button>
+          <span class="quantity">1</span>
+          <button class="increase">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- VIP Pass Ticket -->
+   <section class="ticket-section">
+  <div class="ticket-card">
+    <div class="ticket-notch left-notch"></div>
+    <div class="ticket-notch right-notch"></div>
+
+    <div class="ticket-date">
+      <p style="font-size: 20px;">11 <br><span>May</span></p>
+    </div>
+    <div class="ticket-info">
+      <p class="ticket-type">VIP Pass</p>
+      <p class="ticket-desc">
+        Enjoy an exclusive experience at Jazz Night for Charity with a VIP Pass. This package is designed to provide exceptional service and direct contribution to the noble cause of this event.
+      </p>
+      <hr>
+      <div class="ticket-footer">
+        <p class="ticket-price" data-type="VIP Pass" data-price="900000">Rp 900.000</p>
+        <div class="ticket-quantity">
+          <button class="decrease">−</button>
+          <span class="quantity">1</span>
+          <button class="increase">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- Notes -->
+  <p style="font-size: 14px; margin-top: 20px; padding-left: 60px;">
+    <strong>Notes:</strong> All ticket categories are available in limited quantities.
+  </p>
+</section>
+
+<!-- Pembayaran -->
+<section class="payment-section">
+  <div class="payment-box">
+    <h4 class="title">
+      <span class="icon">🎟️</span>
+      The total price of the ticket you booked
+    </h4>
+    <hr>
+    <div id="summary-text" class="ticket-info2">
+      Total you have to pay
+    </div>
+    <div id="summary-price" class="price"><strong><br>Rp 900.000</strong></div>
+    <hr>
+      <div class="payment-method">
+        <label class="payment-option">
+          <input type="radio" name="payment" value="gopay">
+          <img src="/assets/gopay.png" alt="Gopay">
+          <span>Gopay</span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="ovo">
+          <img src="/assets/ovo.png" alt="Ovo">
+          <span>Ovo</span>
+        </label>
+      </div>
+
+      <button class="pay-button">Payment</button>
+      
+    </div>
+  </section>
+
+  <div class="copyright">
+    &copy; 2025 Red Music Event. All rights reserved.
+  </div>
+
+  <script>
+  function toggleMenu() {
+    const navList = document.querySelector('.navbar ul');
+    navList.classList.toggle('show');
+  }
+</script>
+
+<script>
+  const ticketCards = document.querySelectorAll(".ticket-card");
+  const summaryText = document.getElementById("summary-text");
+  const summaryPrice = document.getElementById("summary-price");
+
+  function updateSummary() {
+    let totalTickets = 0;
+    let totalPrice = 0;
+    let summaryDetails = [];
+
+    ticketCards.forEach(card => {
+      const quantity = parseInt(card.querySelector(".quantity").innerText);
+      const price = parseInt(card.querySelector(".ticket-price").getAttribute("data-price"));
+      const type = card.querySelector(".ticket-price").getAttribute("data-type");
+
+      if (quantity > 0) {
+        totalTickets += quantity;
+        totalPrice += price * quantity;
+        summaryDetails.push(`${quantity} Ticket${quantity > 1 ? 's' : ''} ${type}`);
+      }
+    });
+
+    summaryText.innerText = summaryDetails.join(', ');
+    summaryPrice.innerHTML = `<strong><br>Rp ${totalPrice.toLocaleString('id-ID')}</strong>`;
+  }
+
+  ticketCards.forEach(card => {
+    const decreaseBtn = card.querySelector(".decrease");
+    const increaseBtn = card.querySelector(".increase");
+    const quantitySpan = card.querySelector(".quantity");
+
+    increaseBtn.addEventListener("click", () => {
+      let qty = parseInt(quantitySpan.innerText);
+      quantitySpan.innerText = qty + 1;
+      updateSummary();
+    });
+
+    decreaseBtn.addEventListener("click", () => {
+      let qty = parseInt(quantitySpan.innerText);
+      if (qty > 0) {
+        quantitySpan.innerText = qty - 1;
+        updateSummary();
+      }
+    });
+  });
+
+  // Hitung awal
+  window.addEventListener("DOMContentLoaded", updateSummary);
+</script>
+
+</body>
+</html>
